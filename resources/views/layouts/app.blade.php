@@ -594,8 +594,8 @@
                                 <span>A</span>
                             </div>
                             <div class="user-info">
-                                <div class="user-name">{{ $name ?? 'Nama Admin' }}</div>
-                                <div class="user-role">({{ $role ?? 'Admin' }})</div>
+                                <div class="user-name">{{ Auth::user()->name ?? 'Nama Admin' }}</div>
+                                <div class="user-role">({{ Auth::user()->getRoleNames()->first() ?? 'Admin' }})</div>
                             </div>
                         </div>
                     </div>
