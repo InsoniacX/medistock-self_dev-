@@ -30,6 +30,9 @@ $linkUrl = '#';
 if ($title == 'Akan Kadaluarsa') {
 $isClickable = true;
 $linkUrl = route('expiring.medications');
+} elseif ($title == 'Stok Menipis') {
+$isClickable = true;
+$linkUrl = route('medicines.low-stock');
 }
 @endphp
 

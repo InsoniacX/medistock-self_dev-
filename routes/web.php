@@ -90,3 +90,6 @@ Route::get('/notifikasi', [NotificationController::class, 'index'])->name('notif
 Route::get('/produkkadaluarsa', [NotificationController::class, 'index'])->name('produkkadaluarsa');
 Route::get('/produkhabis', [NotificationController::class, 'index'])->name('produkhabis');
 Route::get('/laporanbulanan', [NotificationController::class, 'index'])->name('laporanbulanan');
+
+// Route for low stock medications
+Route::get('/low-stock', [MedicineController::class, 'lowStock'])->name('medicines.low-stock');
