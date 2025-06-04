@@ -15,42 +15,16 @@
         </a>
     </div>
 
-// Tentukan kelas warna berdasarkan judul
-$colorClass = '';
-if ($title == 'Total Obat') {
-$colorClass = 'text-total-obat';
-} elseif ($title == 'Akan Kadaluarsa') {
-$colorClass = 'text-akan-kadaluarsa';
-} elseif ($title == 'Kadaluarsa') {
-$colorClass = 'text-kadaluarsa';
-} elseif ($title == 'Stok Menipis') {
-$colorClass = 'text-stok-menipis';
-}
-
-// Tentukan jika kartu dapat diklik
-$isClickable = false;
-$linkUrl = '#';
-if ($title == 'Akan Kadaluarsa') {
-$isClickable = true;
-$linkUrl = route('expiring.medications');
-} elseif ($title == 'Stok Menipis') {
-$isClickable = true;
-$linkUrl = route('medicines.low-stock');
-}
-@endphp
-
-<div class="col-sm-6 col-lg-3">
-    @if($isClickable)
-    <a href="{{ $linkUrl }}" class="text-decoration-none">
-        @endif
-        <div class="card h-100" style="border-radius: 16px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-height: 150px; display: flex; flex-direction: column; justify-content: center; {{ $isClickable ? 'cursor: pointer; transition: transform 0.2s ease;' : '' }}"
-            {{ $isClickable ? 'onmouseover="this.style.transform=\'scale(1.02)\'" onmouseout="this.style.transform=\'scale(1)\'"' : '' }}>
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--light-gray);">
-                        <img src="{{ asset('assets/images/' . $icon) }}" alt="{{ $title }}" width="24" height="24">
-                    </div>
-                    <h5 class="card-title mb-0" style="font-size: 20px; font-weight: 500;">{{ $title }}</h5>
+    <!-- Info Card -->
+    <div class="card mb-4">
+        <div class="card-body p-3">
+            <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(255, 193, 7, 0.1);">
+                    <img src="{{ asset('assets/images/trending-down.png') }}" alt="Stok Menipis" width="28" height="28">
+                </div>
+                <div>
+                    <h3 class="text-akan-kadaluarsa mb-0" style="font-size: 24px; font-weight: 500;">{{ $ }} Obat Akan Habis</h3>
+                    <p class="mb-0">Daftar obat dengan stok kurang dari 10. Harap segera lakukan pengadaan ulang.</p>
                 </div>
             </div>
         </div>
