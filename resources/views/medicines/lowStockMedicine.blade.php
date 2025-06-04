@@ -15,7 +15,6 @@
         </a>
     </div>
 
-<<<<<<< HEAD
     <!-- Info Card -->
     <div class="card mb-4">
         <div class="card-body p-3">
@@ -26,44 +25,6 @@
                 <div>
                     <h3 class="text-akan-kadaluarsa mb-0" style="font-size: 24px; font-weight: 500;">{{ $totalStokMenipis }} Obat Akan Habis</h3>
                     <p class="mb-0">Daftar obat dengan stok kurang dari 10. Harap segera lakukan pengadaan ulang.</p>
-=======
-// Tentukan kelas warna berdasarkan judul
-$colorClass = '';
-if ($title == 'Total Obat') {
-$colorClass = 'text-total-obat';
-} elseif ($title == 'Akan Kadaluarsa') {
-$colorClass = 'text-akan-kadaluarsa';
-} elseif ($title == 'Kadaluarsa') {
-$colorClass = 'text-kadaluarsa';
-} elseif ($title == 'Stok Menipis') {
-$colorClass = 'text-stok-menipis';
-}
-
-// Tentukan jika kartu dapat diklik
-$isClickable = false;
-$linkUrl = '#';
-if ($title == 'Akan Kadaluarsa') {
-$isClickable = true;
-$linkUrl = route('expiring.medications');
-} elseif ($title == 'Stok Menipis') {
-$isClickable = true;
-$linkUrl = route('medicines.low-stock');
-}
-@endphp
-
-<div class="col-sm-6 col-lg-3">
-    @if($isClickable)
-    <a href="{{ $linkUrl }}" class="text-decoration-none">
-        @endif
-        <div class="card h-100" style="border-radius: 16px; border: none; box-shadow: 0 4px 6px rgba(0,0,0,0.1); min-height: 150px; display: flex; flex-direction: column; justify-content: center; {{ $isClickable ? 'cursor: pointer; transition: transform 0.2s ease;' : '' }}"
-            {{ $isClickable ? 'onmouseover="this.style.transform=\'scale(1.02)\'" onmouseout="this.style.transform=\'scale(1)\'"' : '' }}>
-            <div class="card-body">
-                <div class="d-flex align-items-center mb-2">
-                    <div class="d-flex align-items-center justify-content-center me-2" style="width: 40px; height: 40px; border-radius: 50%; background-color: var(--light-gray);">
-                        <img src="{{ asset('assets/images/' . $icon) }}" alt="{{ $title }}" width="24" height="24">
-                    </div>
-                    <h5 class="card-title mb-0" style="font-size: 20px; font-weight: 500;">{{ $title }}</h5>
->>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
                 </div>
             </div>
         </div>
@@ -73,7 +34,7 @@ $linkUrl = route('medicines.low-stock');
     <div class="card">
         <div class="card-body p-3">
             <h3 class="section-title mb-3">Daftar Obat Dengan Stok Rendah (Total: {{ $totalStokMenipis }})</h3>
-            
+
             <!-- Table -->
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -96,11 +57,11 @@ $linkUrl = route('medicines.low-stock');
                             <td class="text-center">
                                 @if ($item['stok'] <= 0)
                                     <span class="badge bg-danger">Stok Habis</span>
-                                @elseif ($item['stok'] < 10)
-                                    <span class="badge bg-warning text-dark">Hampir Habis</span>
-                                @else
-                                    <span class="badge bg-success">Aman</span>
-                                @endif
+                                    @elseif ($item['stok'] < 10)
+                                        <span class="badge bg-warning text-dark">Hampir Habis</span>
+                                        @else
+                                        <span class="badge bg-success">Aman</span>
+                                        @endif
                             </td>
                         </tr>
                         @empty
@@ -115,7 +76,7 @@ $linkUrl = route('medicines.low-stock');
             <!-- Pagination Links -->
             <div class="d-flex justify-content-center mt-3">
                 @if ($lowStockPaginator->hasPages())
-                    {{ $lowStockPaginator->links() }}
+                {{ $lowStockPaginator->links() }}
                 @endif
             </div>
         </div>

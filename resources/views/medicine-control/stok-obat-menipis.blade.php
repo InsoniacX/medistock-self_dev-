@@ -23,7 +23,7 @@
                     <img src="{{ asset('assets/images/trending-down.png') }}" alt="Stok Menipis" width="28" height="28">
                 </div>
                 <div>
-                    <h3 class="text-akan-kadaluarsa mb-0" style="font-size: 24px; font-weight: 500;">{{ $totalStokMenipis }} Obat Akan Habis</h3>
+                    <h3 class="text-akan-kadaluarsa mb-0" style="font-size: 24px; font-weight: 500;">{{ $ }} Obat Akan Habis</h3>
                     <p class="mb-0">Daftar obat dengan stok kurang dari 10. Harap segera lakukan pengadaan ulang.</p>
                 </div>
             </div>

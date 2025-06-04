@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medicines;
+<<<<<<< HEAD
 use App\Models\Category;
+=======
+use App\Models\Categories;
+>>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
 use App\Models\Batch;
 use Illuminate\Http\Request;
 
@@ -35,7 +39,7 @@ class MedicineController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
+        $categories = Categories::all();
         return view('inventory.create', compact('categories'));
     }
 
@@ -64,7 +68,7 @@ class MedicineController extends Controller
      */
     public function edit(Medicines $medicine)
     {
-        $categories = Category::all();
+        $categories = Categories::all();
         $medicine->load('batches');
         return view('inventory.edit', compact('medicine', 'categories'));
     }
@@ -125,7 +129,11 @@ class MedicineController extends Controller
             ];
         });
 
+<<<<<<< HEAD
         return view('stok-obat-menipis', [
+=======
+        return view('medicines/lowStockMedicine', [
+>>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
             'totalStokMenipis' => $lowStockBatches->total(), // total data di pagination
             'lowStockMedications' => $lowStockList,
             'lowStockPaginator' => $lowStockBatches, // objek paginator untuk paginasi di view

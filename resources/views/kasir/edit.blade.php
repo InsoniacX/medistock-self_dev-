@@ -9,7 +9,6 @@
         <form method="POST" action="{{ route('update.kasir', $user->id) }}">
             @csrf
             @method('PUT')
-
             <div class="grid grid-cols-2 gap-4 mb-4">
                 <div>
                     <x-input-label value="Nama Lengkap" />

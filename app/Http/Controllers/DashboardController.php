@@ -294,15 +294,32 @@ class DashboardController extends Controller
     {
         $user = User::findOrFail($id);
 
+        // Gabungkan tanggal lahir dulu
+        $request->merge([
+            'birthday' => "{$request->birth_year}-" . str_pad($request->birth_month, 2, '0', STR_PAD_LEFT) . "-" . str_pad($request->birth_day, 2, '0', STR_PAD_LEFT)
+        ]);
+
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email,' . $user->id,
             'phone_number' => 'required|string|digits_between:10,15',
             'gender' => 'required|in:Laki-laki,Perempuan',
             'birthday' => 'required|date|before:today',
+            'password' => 'nullable|string|min:8|confirmed',
         ]);
 
-        $user->update($validated);
+        $user->update([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone_number' => $validated['phone_number'],
+            'gender' => $validated['gender'],
+            'birthday' => $validated['birthday'],
+        ]);
+
+        if (!empty($validated['password'])) {
+            $user->password = Hash::make($validated['password']);
+            $user->save();
+        }
 
         return redirect()->route('manajemen.kasir')->with('success', 'Data kasir berhasil diperbarui.');
     }
