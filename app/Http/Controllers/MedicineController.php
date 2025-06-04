@@ -129,11 +129,7 @@ class MedicineController extends Controller
             ];
         });
 
-<<<<<<< HEAD
-        return view('stok-obat-menipis', [
-=======
         return view('medicines/lowStockMedicine', [
->>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
             'totalStokMenipis' => $lowStockBatches->total(), // total data di pagination
             'lowStockMedications' => $lowStockList,
             'lowStockPaginator' => $lowStockBatches, // objek paginator untuk paginasi di view

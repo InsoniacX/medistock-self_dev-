@@ -15,18 +15,6 @@
         </a>
     </div>
 
-<<<<<<< HEAD
-    <!-- Info Card -->
-    <div class="card mb-4">
-        <div class="card-body p-3">
-            <div class="d-flex align-items-center">
-                <div class="d-flex align-items-center justify-content-center me-3" style="width: 48px; height: 48px; border-radius: 50%; background-color: rgba(255, 193, 7, 0.1);">
-                    <img src="{{ asset('assets/images/trending-down.png') }}" alt="Stok Menipis" width="28" height="28">
-                </div>
-                <div>
-                    <h3 class="text-akan-kadaluarsa mb-0" style="font-size: 24px; font-weight: 500;">{{ $totalStokMenipis }} Obat Akan Habis</h3>
-                    <p class="mb-0">Daftar obat dengan stok kurang dari 10. Harap segera lakukan pengadaan ulang.</p>
-=======
 // Tentukan kelas warna berdasarkan judul
 $colorClass = '';
 if ($title == 'Total Obat') {
@@ -63,7 +51,6 @@ $linkUrl = route('medicines.low-stock');
                         <img src="{{ asset('assets/images/' . $icon) }}" alt="{{ $title }}" width="24" height="24">
                     </div>
                     <h5 class="card-title mb-0" style="font-size: 20px; font-weight: 500;">{{ $title }}</h5>
->>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
                 </div>
             </div>
         </div>
