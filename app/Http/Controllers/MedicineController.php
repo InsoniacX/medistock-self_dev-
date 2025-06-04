@@ -3,11 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medicines;
-<<<<<<< HEAD
-use App\Models\Category;
-=======
 use App\Models\Categories;
->>>>>>> 7fc3f0b0c9af7b37d79d4e43445435fe620d463e
 use App\Models\Batch;
 use Illuminate\Http\Request;
 
